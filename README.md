@@ -1,38 +1,79 @@
-# flask-movies
+# OpenDash - Stock Market Dashboard
 
-A simple application written in Flask. 
+Welcome to OpenDash, a Flask-based Stock Market Dashboard application. This app provides an API to fetch stock data and displays a welcoming message on the home route.
 
-The application has the following endpoints:
+## Features
 
-1. [http://localhost:5000/](http://localhost:5000/) displays the index page
-2. [http://localhost:5000/api/movies](http://localhost:5000/api/movies) displays the movie list
+- Fetch stock data through a RESTful API
+- Display a custom welcome message
+- Initialize the database with sample stock data
 
-## Want to use this project?
+## Technologies Used
 
-1. Fork/Clone
+- Python 3.11
+- Flask 3.0.3
+- Flask-SQLAlchemy 3.0.3
+- SQLite
+- python-dotenv 1.0.1
 
-2. Create and activate a virtual environment:
+## Getting Started
 
-    ```sh
-    $ python3 -m venv venv && source venv/bin/activate
+### Prerequisites
+
+Ensure you have the following installed:
+
+- Python 3.11
+- pip (Python package installer)
+
+### Installation
+
+1. **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/yourusername/opendash.git
+    cd opendash
     ```
 
-3. Install the requirements:
+2. **Create a virtual environment:**
 
-    ```sh
-    (venv)$ pip install -r requirements.txt
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
     ```
 
-4. Initialize the database:
+3. **Install dependencies:**
 
-    ```sh
-    (venv)$ python init_db.py
+    ```bash
+    pip install -r requirements.txt
     ```
 
-5. Run the server:
+4. **Set up environment variables:**
 
-    ```sh
-    (venv)$ flask run
+    Create a `.env` file in the root directory and add the following:
+
+    ```env
+    FLASK_STOCK_MARKET_DASHBOARD_API="Welcome to OpenDash"
+    DATABASE_URL="sqlite:///default.db"
     ```
-    
- 6. Navigate to [http://localhost:5000/](http://localhost:5000/) in your favorite web browser.
+
+    Alternatively, you can use the provided `.sample.env` as a template:
+
+    ```bash
+    cp .sample.env .env
+    ```
+
+5. **Initialize the database:**
+
+    ```bash
+    flask shell
+    from app import init_db
+    init_db()
+    exit()
+    ```
+
+### Running the Application
+
+To start the Flask development server:
+
+```bash
+flask run
